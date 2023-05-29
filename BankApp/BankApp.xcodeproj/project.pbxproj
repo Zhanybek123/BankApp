@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D85EEEB42A1C1245008EC010 /* TitleAndDescriptionLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85EEEB32A1C1244008EC010 /* TitleAndDescriptionLabelView.swift */; };
+		D877FE7E2A24242500E2927E /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FE7D2A24242500E2927E /* OnboardingContainerViewController.swift */; };
 		D8F6CBD52A1BEF9A00D7B522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD42A1BEF9A00D7B522 /* AppDelegate.swift */; };
 		D8F6CBD72A1BEF9A00D7B522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD62A1BEF9A00D7B522 /* SceneDelegate.swift */; };
 		D8F6CBD92A1BEF9A00D7B522 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD82A1BEF9A00D7B522 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		D85EEEB32A1C1244008EC010 /* TitleAndDescriptionLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndDescriptionLabelView.swift; sourceTree = "<group>"; };
+		D877FE7D2A24242500E2927E /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		D8F6CBD12A1BEF9A00D7B522 /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F6CBD42A1BEF9A00D7B522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F6CBD62A1BEF9A00D7B522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,14 @@
 			path = General;
 			sourceTree = "<group>";
 		};
+		D877FE7C2A2423FA00E2927E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D877FE7D2A24242500E2927E /* OnboardingContainerViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		D8F6CBC82A1BEF9A00D7B522 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +77,7 @@
 		D8F6CBD32A1BEF9A00D7B522 /* BankApp */ = {
 			isa = PBXGroup;
 			children = (
+				D877FE7C2A2423FA00E2927E /* Onboarding */,
 				D8F6CBE82A1BF18F00D7B522 /* Files */,
 				D8F6CBE92A1BF1F000D7B522 /* Core */,
 				D8F6CBD42A1BEF9A00D7B522 /* AppDelegate.swift */,
@@ -168,6 +179,7 @@
 				D85EEEB42A1C1245008EC010 /* TitleAndDescriptionLabelView.swift in Sources */,
 				D8F6CBD52A1BEF9A00D7B522 /* AppDelegate.swift in Sources */,
 				D8F6CBEB2A1BF31700D7B522 /* LoginView.swift in Sources */,
+				D877FE7E2A24242500E2927E /* OnboardingContainerViewController.swift in Sources */,
 				D8F6CBD72A1BEF9A00D7B522 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
