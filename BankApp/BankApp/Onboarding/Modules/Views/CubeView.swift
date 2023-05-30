@@ -20,16 +20,13 @@ class CubeView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        translatesAutoresizingMaskIntoConstraints = false
+        
         layer.backgroundColor = UIColor(cgColor: CGColor(red: 101, green: 22, blue: 102, alpha: 102)).cgColor
         backgroundColor = .yellow
         
-//        layer.backgroundColor = UIColor(red: 248 / 255.0, green: 96 / 255.0, blue: 47 / 255.0, alpha: 1.0).cgColor
-        
-//        self.backgroundColor = .yellow
-//        layer.backgroundColor = UIColor(cgColor: CGColor(red: 101, green: 22, blue: 102, alpha: 102)).cgColor
-        
         let freeform = UIBezierPath()
-        freeform.move(to: CGPoint(x: 0, y: bounds.height / 1.25))
+        freeform.move(to: CGPoint(x: 0, y: bounds.height / 1.2))
         freeform.addLine(to: CGPoint(x: bounds.width, y: 0))
         freeform.addLine(to: CGPoint(x: bounds.width, y: bounds.height))
         freeform.addLine(to: CGPoint(x: 0, y: bounds.height))
@@ -37,9 +34,7 @@ class CubeView: UIView {
         
         let layer = CAShapeLayer()
         layer.path = freeform.cgPath
-//        layer.backgroundColor = UIColor(red: 248 / 255.0, green: 96 / 255.0, blue: 47 / 255.0, alpha: 1.0).cgColor
         layer.fillColor = UIColor(red: 248 / 255.0, green: 96 / 255.0, blue: 47 / 255.0, alpha: 1.0).cgColor
-        
         self.layer.insertSublayer(layer, at: 0)
     }
 }

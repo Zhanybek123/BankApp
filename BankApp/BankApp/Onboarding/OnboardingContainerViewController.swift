@@ -10,11 +10,8 @@ import UIKit
 class OnboardingContainerViewController: UIViewController {
  
     let pageVeiwController: UIPageViewController
-    var pages: [UIViewController] = [VC1(), VC2(), VC3()]
-    var currentVC: UIViewController {
-        didSet {
-        }
-    }
+    var pages: [UIViewController] = [FirstOnboardingViewController(onboardingImage: "Saly-2", with: "Welcome to your personal banking App. See your daily updates"), VC2(), VC3()]
+    var currentVC: UIViewController 
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageVeiwController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
@@ -29,7 +26,7 @@ class OnboardingContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .black
         configure()
     }
     
@@ -74,12 +71,6 @@ extension OnboardingContainerViewController: UIPageViewControllerDataSource {
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return pages.firstIndex(of: self.currentVC) ?? 0
-    }
-}
-
-class VC1: UIViewController {
-    override func viewDidLoad() {
-        view.backgroundColor = .red
     }
 }
 

@@ -58,18 +58,26 @@
 			isa = PBXGroup;
 			children = (
 				D877FE7D2A24242500E2927E /* OnboardingContainerViewController.swift */,
-				D877FE7F2A26576000E2927E /* New Group */,
+				D877FE7F2A26576000E2927E /* Modules */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		D877FE7F2A26576000E2927E /* New Group */ = {
+		D877FE7F2A26576000E2927E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				D877FE802A2657BC00E2927E /* FirstOnboardingViewController.swift */,
+				D877FE842A26B7CC00E2927E /* Views */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D877FE842A26B7CC00E2927E /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				D877FE822A266DEF00E2927E /* CubeView.swift */,
 			);
-			path = "New Group";
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D8F6CBC82A1BEF9A00D7B522 = {
