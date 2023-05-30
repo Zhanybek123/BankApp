@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         label.isHidden = true
         return label
     }()
+    
     var username: String? {
         return loginView.userTextField.text
     }
