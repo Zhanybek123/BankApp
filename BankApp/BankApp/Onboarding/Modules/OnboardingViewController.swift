@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstOnboardingViewController: UIViewController {
+class OnboardingViewController: UIViewController {
     
     let onboardingImage: String
     let text: String
@@ -25,7 +25,7 @@ class FirstOnboardingViewController: UIViewController {
     private let imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -40,15 +40,6 @@ class FirstOnboardingViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         return label
-    }()
-    
-    private let closeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Close", for: .normal)
-        button.setTitleColor(.systemPink, for: .highlighted)
-        button.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
-        return button
     }()
     
     init(onboardingImage: String, with text: String) {
@@ -69,13 +60,12 @@ class FirstOnboardingViewController: UIViewController {
     }
 }
 
-extension FirstOnboardingViewController {
+extension OnboardingViewController {
     
     func configure() {
         
         view.addSubview(cube)
         view.addSubview(stackView)
-        view.addSubview(closeButton)
         
         imageView.image = UIImage(named: onboardingImage)
         label.text = text
@@ -92,21 +82,7 @@ extension FirstOnboardingViewController {
             cube.topAnchor.constraint(equalTo: view.centerYAnchor),
             cube.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cube.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            cube.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-//            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18),
-//            closeButton.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: 8),
-//            closeButton.heightAnchor.constraint(equalToConstant: 40),
-//            closeButton.widthAnchor.constraint(equalToConstant: 40)
+            cube.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-    }
-}
-
-
-extension FirstOnboardingViewController {
-    @objc private func closeTapped() {
-        
     }
 }
