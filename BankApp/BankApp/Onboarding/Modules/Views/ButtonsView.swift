@@ -26,6 +26,15 @@ class ButtonsView: UIView {
         return button
     }()
     
+    private(set) var doneButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Done", for: .normal)
+        button.setTitleColor(.systemPink, for: .highlighted)
+        button.isHidden = true
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -41,6 +50,7 @@ class ButtonsView: UIView {
         
         self.addSubview(backButton)
         self.addSubview(nextButton)
+        self.addSubview(doneButton)
         
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 16),
@@ -48,6 +58,9 @@ class ButtonsView: UIView {
             
             nextButton.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             nextButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            
+            doneButton.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            doneButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16)
             ])
         
     }

@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol OnboardingContainerViewControllerDelegate: AnyObject {
+    func didPressDoneButton()
+}
+
 class OnboardingContainerViewController: UIViewController {
+    
+    weak var onboardingContainerDelegate: OnboardingContainerViewControllerDelegate?
     
     let buttonsView = ButtonsView()
     
@@ -66,6 +72,7 @@ class OnboardingContainerViewController: UIViewController {
         
         buttonsView.backButton.addTarget(self, action: #selector(backTapped), for: .primaryActionTriggered)
         buttonsView.nextButton.addTarget(self, action: #selector(nextTapped), for: .primaryActionTriggered)
+        buttonsView.doneButton.addTarget(self, action: #selector(doneTapped), for: .primaryActionTriggered)
     }
     
     override func viewDidLayoutSubviews() {
@@ -93,8 +100,9 @@ class OnboardingContainerViewController: UIViewController {
     }
     
     private func updateButtons(with index: Int) {
-        buttonsView.nextButton.setTitle(index == pagesVC.count - 1 ? "Done" : "Next", for: .normal)
+        buttonsView.nextButton.isHidden = index == pagesVC.count - 1 ? true: false
         buttonsView.backButton.isHidden = index == 0 ? true : false
+        buttonsView.doneButton.isHidden = index == pagesVC.count - 1 ? false : true
     }
 }
 
@@ -132,6 +140,11 @@ extension OnboardingContainerViewController {
     
     @objc func nextTapped() {
         navigateNextPage()
+    }
+    
+    @objc func doneTapped() {
+        onboardingContainerDelegate?.didPressDoneButton()
+        print("Did tap done button")
     }
 }
 

@@ -26,7 +26,7 @@ class CubeView: UIView {
         backgroundColor = .yellow
         
         let freeform = UIBezierPath()
-        freeform.move(to: CGPoint(x: 0, y: bounds.height / 1.2))
+        freeform.move(to: CGPoint(x: 0, y: bounds.height))
         freeform.addLine(to: CGPoint(x: bounds.width, y: 0))
         freeform.addLine(to: CGPoint(x: bounds.width, y: bounds.height))
         freeform.addLine(to: CGPoint(x: 0, y: bounds.height))
