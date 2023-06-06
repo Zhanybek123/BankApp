@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var loginViewController = LoginViewController()
     var onboardingContainerViewController = OnboardingContainerViewController()
-    var dummyVC = DummyVC()
+    var dummyVC = AccountSummaryViewController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -22,13 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = loginViewController
 //        window?.rootViewController = onboardingContainerViewController
 //        window?.rootViewController = dummyVC
-        window?.rootViewController = MainTabBarController()
+        window?.rootViewController = AccountSummaryViewController()
         
         window?.makeKeyAndVisible()
         
         loginViewController.loginViewControllerDelegate = self
         onboardingContainerViewController.onboardingContainerDelegate = self
-        dummyVC.logoutDelegate = self
+//        dummyVC.logoutDelegate = self
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
