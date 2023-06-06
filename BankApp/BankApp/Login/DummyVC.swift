@@ -25,6 +25,7 @@ class DummyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        title = "Dummy View Controller"
         configure()
     }
     

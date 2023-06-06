@@ -14,6 +14,7 @@
 		D877FE862A28024900E2927E /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FE852A28024900E2927E /* ButtonsView.swift */; };
 		D877FE882A2E45A000E2927E /* DummyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FE872A2E45A000E2927E /* DummyVC.swift */; };
 		D877FE8B2A2E535800E2927E /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FE8A2A2E535800E2927E /* LocalState.swift */; };
+		D877FE8D2A2E78E800E2927E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FE8C2A2E78E800E2927E /* MainTabBarController.swift */; };
 		D8F6CBD52A1BEF9A00D7B522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD42A1BEF9A00D7B522 /* AppDelegate.swift */; };
 		D8F6CBD72A1BEF9A00D7B522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD62A1BEF9A00D7B522 /* SceneDelegate.swift */; };
 		D8F6CBD92A1BEF9A00D7B522 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD82A1BEF9A00D7B522 /* LoginViewController.swift */; };
@@ -30,6 +31,7 @@
 		D877FE852A28024900E2927E /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		D877FE872A2E45A000E2927E /* DummyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyVC.swift; sourceTree = "<group>"; };
 		D877FE8A2A2E535800E2927E /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
+		D877FE8C2A2E78E800E2927E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D8F6CBD12A1BEF9A00D7B522 /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F6CBD42A1BEF9A00D7B522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F6CBD62A1BEF9A00D7B522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,13 +53,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D85EEEB22A1C1212008EC010 /* General */ = {
+		D85EEEB22A1C1212008EC010 /* VIews */ = {
 			isa = PBXGroup;
 			children = (
 				D8F6CBEA2A1BF31700D7B522 /* LoginView.swift */,
 				D85EEEB32A1C1244008EC010 /* TitleAndDescriptionLabelView.swift */,
 			);
-			path = General;
+			path = VIews;
 			sourceTree = "<group>";
 		};
 		D877FE7C2A2423FA00E2927E /* Onboarding */ = {
@@ -98,6 +100,7 @@
 		D8F6CBC82A1BEF9A00D7B522 = {
 			isa = PBXGroup;
 			children = (
+				D877FE8C2A2E78E800E2927E /* MainTabBarController.swift */,
 				D8F6CBD32A1BEF9A00D7B522 /* BankApp */,
 				D8F6CBD22A1BEF9A00D7B522 /* Products */,
 			);
@@ -114,9 +117,9 @@
 		D8F6CBD32A1BEF9A00D7B522 /* BankApp */ = {
 			isa = PBXGroup;
 			children = (
-				D877FE892A2E534100E2927E /* Utilities */,
+				D8F6CBE92A1BF1F000D7B522 /* Login */,
 				D877FE7C2A2423FA00E2927E /* Onboarding */,
-				D8F6CBE92A1BF1F000D7B522 /* Core */,
+				D877FE892A2E534100E2927E /* Utilities */,
 				D8F6CBD42A1BEF9A00D7B522 /* AppDelegate.swift */,
 				D8F6CBD62A1BEF9A00D7B522 /* SceneDelegate.swift */,
 				D8F6CBDD2A1BEF9C00D7B522 /* Assets.xcassets */,
@@ -126,14 +129,14 @@
 			path = BankApp;
 			sourceTree = "<group>";
 		};
-		D8F6CBE92A1BF1F000D7B522 /* Core */ = {
+		D8F6CBE92A1BF1F000D7B522 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				D8F6CBD82A1BEF9A00D7B522 /* LoginViewController.swift */,
 				D877FE872A2E45A000E2927E /* DummyVC.swift */,
-				D85EEEB22A1C1212008EC010 /* General */,
+				D85EEEB22A1C1212008EC010 /* VIews */,
 			);
-			path = Core;
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +218,7 @@
 				D877FE8B2A2E535800E2927E /* LocalState.swift in Sources */,
 				D877FE862A28024900E2927E /* ButtonsView.swift in Sources */,
 				D8F6CBD72A1BEF9A00D7B522 /* SceneDelegate.swift in Sources */,
+				D877FE8D2A2E78E800E2927E /* MainTabBarController.swift in Sources */,
 				D877FE812A2657BC00E2927E /* OnboardingViewController.swift in Sources */,
 				D877FE882A2E45A000E2927E /* DummyVC.swift in Sources */,
 			);
