@@ -16,6 +16,15 @@ class AccountSummaryHeaderView: UIView {
         return view
     }()
     
+    let moonImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "moon.circle.fill")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.tintColor = .white
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
     let stackView: UIStackView = {
         let scroll = UIStackView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -68,6 +77,7 @@ class AccountSummaryHeaderView: UIView {
     func configure() {
         addSubview(customView)
         addSubview(stackView)
+        addSubview(moonImageView)
         
         stackView.addArrangedSubview(bankNameLabel)
         stackView.addArrangedSubview(greatingLabel)
@@ -84,8 +94,14 @@ class AccountSummaryHeaderView: UIView {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            stackView.trailingAnchor.constraint(equalTo: moonImageView.leadingAnchor, constant: 8),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            
+            moonImageView.topAnchor.constraint(equalTo: topAnchor),
+            moonImageView.leadingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 8),
+            moonImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            moonImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            moonImageView.widthAnchor.constraint(equalToConstant: bounds.width / 3)
         ])
     }
     

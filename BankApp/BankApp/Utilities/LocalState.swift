@@ -19,7 +19,6 @@ class LocalState {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: Keys.hasOnborded.rawValue)
-            UserDefaults.standard.synchronize()
         }
     }
 }

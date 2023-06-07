@@ -16,6 +16,7 @@ class AccountSummaryViewController: UIViewController {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
+        table.register(AccountSummaryTableViewCell.self, forCellReuseIdentifier: AccountSummaryTableViewCell.cellID)
         return table
     }()
     
@@ -78,9 +79,7 @@ extension AccountSummaryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = dummyData[indexPath.row]
-        cell.backgroundColor = .blue
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryTableViewCell.cellID) else { return UITableViewCell() }
         return cell
     }
 }
