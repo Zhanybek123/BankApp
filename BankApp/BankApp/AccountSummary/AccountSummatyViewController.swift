@@ -17,6 +17,7 @@ class AccountSummaryViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
         table.register(AccountSummaryTableViewCell.self, forCellReuseIdentifier: AccountSummaryTableViewCell.cellID)
+        table.rowHeight = 147
         return table
     }()
     
@@ -50,9 +51,6 @@ class AccountSummaryViewController: UIViewController {
     
     func configureHeaderView() {
         header = AccountSummaryHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 150))
-//        var size = header.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
-//        size.width = UIScreen.main.bounds.width
-//        header.frame.size = size
         
         tableView.tableHeaderView = header
         configureHeaderViewProperties()
@@ -63,6 +61,8 @@ class AccountSummaryViewController: UIViewController {
         header?.greatingLabel.text = "Good day,"
         header?.userNameLabel.text = "Kelsey"
         header?.dateLabel.text = "June 6, 2023"
+        
+        header?.bankNameLabel.font = .preferredFont(forTextStyle: .title1)
     }
 }
 
