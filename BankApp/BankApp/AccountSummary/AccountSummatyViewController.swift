@@ -17,7 +17,7 @@ class AccountSummaryViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
         table.register(AccountSummaryTableViewCell.self, forCellReuseIdentifier: AccountSummaryTableViewCell.cellID)
-        table.rowHeight = 147
+        table.rowHeight = 117
         return table
     }()
     
@@ -79,7 +79,23 @@ extension AccountSummaryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryTableViewCell.cellID) else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryTableViewCell.cellID) as? AccountSummaryTableViewCell else { return UITableViewCell() }
+        cell.balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "989,466", cents: "23")
         return cell
+    }
+    
+    private func makeFormattedBalance(dollars: String, cents: String) -> NSMutableAttributedString {
+        let dollarSingAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
+        let dollarAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
+        let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote), .baselineOffset: 8]
+        
+        let rootString = NSMutableAttributedString(string: "$", attributes: dollarSingAttributes)
+        let dollarString = NSAttributedString(string: dollars, attributes: dollarAttributes)
+        let centString = NSAttributedString(string: cents, attributes: centAttributes)
+        
+        rootString.append(dollarString)
+        rootString.append(centString)
+        
+        return rootString
     }
 }

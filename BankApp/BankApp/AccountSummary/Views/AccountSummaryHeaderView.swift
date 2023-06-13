@@ -20,7 +20,7 @@ class AccountSummaryHeaderView: UIView {
         let image = UIImageView()
         image.image = UIImage(systemName: "moon.circle.fill")
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.tintColor = .white
+        image.tintColor = .systemBackground
         image.contentMode = .scaleAspectFill
         return image
     }()

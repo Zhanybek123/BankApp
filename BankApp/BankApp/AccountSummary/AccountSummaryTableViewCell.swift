@@ -44,7 +44,7 @@ class AccountSummaryTableViewCell: UITableViewCell {
     
     let balanceLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline)
+        label.font = .preferredFont(forTextStyle: .callout)
         label.text = "Balance"
         label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,8 +53,7 @@ class AccountSummaryTableViewCell: UITableViewCell {
     
     let balanceAmountLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline)
-        label.text = "$929,466,63"
+        label.font = .preferredFont(forTextStyle: .caption1)
         label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -86,9 +85,9 @@ class AccountSummaryTableViewCell: UITableViewCell {
         balanceStackVeiw.addArrangedSubview(balanceLabel)
         balanceStackVeiw.addArrangedSubview(balanceAmountLabel)
         
-        balanceStackVeiw.distribution = .fillEqually
+//        balanceStackVeiw.distribution = .fillEqually
         balanceStackVeiw.alignment = .trailing
-        balanceStackVeiw.spacing = 4
+        balanceStackVeiw.spacing = 0
         balanceStackVeiw.axis = .vertical
         
         NSLayoutConstraint.activate([
