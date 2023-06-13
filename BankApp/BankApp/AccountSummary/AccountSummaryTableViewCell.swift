@@ -45,7 +45,7 @@ class AccountSummaryTableViewCell: UITableViewCell {
     let balanceLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .callout)
-        label.text = "Balance"
+        label.text = "Current balance"
         label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -108,6 +108,22 @@ class AccountSummaryTableViewCell: UITableViewCell {
             chevronImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             chevronImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
         ])
+    }
+}
+
+extension AccountSummaryTableViewCell {
+    func configureCell(with model: MainTableViewCellModel) {
         
+        accountTypeLabel.text = model.accoundType.rawValue.uppercased()
+        accountNameLabel.text = model.accountName
+        
+        switch model.accoundType {
+        case .bank:
+            deviderView.backgroundColor = appColor
+        case .creditCard:
+            deviderView.backgroundColor = .systemOrange
+        case .checking:
+            deviderView.backgroundColor = .systemPurple
+        }
     }
 }

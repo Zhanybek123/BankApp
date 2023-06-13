@@ -10,7 +10,7 @@ import UIKit
 
 class AccountSummaryViewController: UIViewController {
     
-    let dummyData = [ "Something1", "Something2", "Something3" ]
+    var accounts = [MainTableViewCellModel]()
     
     var tableView: UITableView = {
         let table = UITableView()
@@ -28,6 +28,7 @@ class AccountSummaryViewController: UIViewController {
         view.backgroundColor = .systemBackground
         configure()
         configureHeaderView()
+        fetchData()
     }
     
 //    override func viewDidLayoutSubviews() {
@@ -75,12 +76,14 @@ extension AccountSummaryViewController: UITableViewDelegate {
 extension AccountSummaryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyData.count
+        return accounts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryTableViewCell.cellID) as? AccountSummaryTableViewCell else { return UITableViewCell() }
         cell.balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "989,466", cents: "23")
+        let account = accounts[indexPath.row]
+        cell.configureCell(with: account)
         return cell
     }
     
@@ -97,5 +100,16 @@ extension AccountSummaryViewController: UITableViewDataSource {
         rootString.append(centString)
         
         return rootString
+    }
+}
+
+
+extension AccountSummaryViewController {
+    func fetchData() {
+        let savings = MainTableViewCellModel(accoundType: .bank, accountName: "Savings")
+        let visa = MainTableViewCellModel(accoundType: .creditCard, accountName: "Visa Flight Card")
+        let checking = MainTableViewCellModel(accoundType: .checking, accountName: "Checking")
+        
+        accounts = [savings, visa, checking]
     }
 }
