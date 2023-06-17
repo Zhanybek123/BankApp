@@ -14,7 +14,6 @@ class AccountSummaryTableViewCell: UITableViewCell {
     let accountTypeLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .caption1)
-        label.text = "Account type"
         label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -30,9 +29,9 @@ class AccountSummaryTableViewCell: UITableViewCell {
     let accountNameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .headline)
-        label.text = "Account name"
         label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
@@ -101,6 +100,7 @@ class AccountSummaryTableViewCell: UITableViewCell {
             
             accountNameLabel.topAnchor.constraint(equalTo: deviderView.bottomAnchor, constant: 16),
             accountNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            accountNameLabel.trailingAnchor.constraint(equalTo: balanceStackVeiw.leadingAnchor, constant: 8),
             
             balanceStackVeiw.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             balanceStackVeiw.trailingAnchor.constraint(equalTo: chevronImageView.leadingAnchor, constant: -8),
@@ -116,9 +116,10 @@ extension AccountSummaryTableViewCell {
         
         accountTypeLabel.text = model.accoundType.rawValue.uppercased()
         accountNameLabel.text = model.accountName
+        balanceAmountLabel.attributedText = model.balanceAsAttributedString
         
         switch model.accoundType {
-        case .bank:
+        case .savings:
             deviderView.backgroundColor = appColor
         case .creditCard:
             deviderView.backgroundColor = .systemOrange

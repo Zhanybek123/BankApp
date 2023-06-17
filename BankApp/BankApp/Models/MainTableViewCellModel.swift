@@ -10,9 +10,14 @@ import Foundation
 struct MainTableViewCellModel {
     
     enum AccountType: String {
-        case bank, creditCard, checking
+        case savings, creditCard, checking
     }
     
     let accoundType: AccountType
     let accountName: String
+    let accountSummary: Decimal
+    
+    var balanceAsAttributedString: NSAttributedString {
+        return CurrencyFormatter().makeAttributedCurrency(accountSummary)
+    }
 }

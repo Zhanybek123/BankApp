@@ -38,6 +38,7 @@ class AccountSummaryViewController: UIViewController {
     
     func configure() {
         view.addSubview(tableView)
+        tableView.backgroundColor = appColor
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -81,35 +82,20 @@ extension AccountSummaryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryTableViewCell.cellID) as? AccountSummaryTableViewCell else { return UITableViewCell() }
-        cell.balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "989,466", cents: "23")
         let account = accounts[indexPath.row]
         cell.configureCell(with: account)
         return cell
     }
-    
-    private func makeFormattedBalance(dollars: String, cents: String) -> NSMutableAttributedString {
-        let dollarSingAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
-        let dollarAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
-        let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote), .baselineOffset: 8]
-        
-        let rootString = NSMutableAttributedString(string: "$", attributes: dollarSingAttributes)
-        let dollarString = NSAttributedString(string: dollars, attributes: dollarAttributes)
-        let centString = NSAttributedString(string: cents, attributes: centAttributes)
-        
-        rootString.append(dollarString)
-        rootString.append(centString)
-        
-        return rootString
-    }
 }
-
 
 extension AccountSummaryViewController {
     func fetchData() {
-        let savings = MainTableViewCellModel(accoundType: .bank, accountName: "Savings")
-        let visa = MainTableViewCellModel(accoundType: .creditCard, accountName: "Visa Flight Card")
-        let checking = MainTableViewCellModel(accoundType: .checking, accountName: "Checking")
+        let savings = MainTableViewCellModel(accoundType: .savings, accountName: "FreedomBank", accountSummary: 929466.23)
+        let visa = MainTableViewCellModel(accoundType: .creditCard, accountName: "Visa Flight Card", accountSummary: 18344.44)
+        let checking = MainTableViewCellModel(accoundType: .checking, accountName: "Visa Checking", accountSummary: 5234.54)
+        let masterCard = MainTableViewCellModel(accoundType: .checking, accountName: "MasterCard credit", accountSummary: 6634.31)
+        let masterCardTarger = MainTableViewCellModel(accoundType: .creditCard, accountName: "MasterCard Target member credit", accountSummary: 3233.44)
         
-        accounts = [savings, visa, checking]
+        accounts = [savings, visa, checking, masterCard, masterCardTarger]
     }
 }
