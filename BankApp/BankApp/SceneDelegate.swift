@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var loginViewController = LoginViewController()
     var onboardingContainerViewController = OnboardingContainerViewController()
-    var dummyVC = DummyVC()
+    var accountSummaryVC = AccountSummaryViewController()
+    var tabBarController = MainTabBarController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -21,14 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
 //        window?.rootViewController = loginViewController
 //        window?.rootViewController = onboardingContainerViewController
-//        window?.rootViewController = dummyVC
-        window?.rootViewController = MainTabBarController()
-        
+//        window?.rootViewController = AccountSummaryViewController()
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         loginViewController.loginViewControllerDelegate = self
         onboardingContainerViewController.onboardingContainerDelegate = self
-        dummyVC.logoutDelegate = self
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -81,7 +81,7 @@ extension SceneDelegate {
 extension SceneDelegate: LoginViewControllerDelegate {
     func didLogin() {
         if LocalState.hasOnborded {
-            setRootViewController(dummyVC)
+            setRootViewController(accountSummaryVC)
         } else {
             setRootViewController(onboardingContainerViewController, animated: true)
         }
@@ -90,7 +90,7 @@ extension SceneDelegate: LoginViewControllerDelegate {
 
 extension SceneDelegate: OnboardingContainerViewControllerDelegate {
     func didPressDoneButton() {
-        setRootViewController(dummyVC)
+        setRootViewController(accountSummaryVC)
         LocalState.hasOnborded = true
     }
 }
