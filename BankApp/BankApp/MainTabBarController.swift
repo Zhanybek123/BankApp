@@ -9,7 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
     
-    private var navigattionControllers: [UINavigationController] = []
+    private var navigationControllers: [UINavigationController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,9 +56,9 @@ extension MainTabBarController  {
         tabBar.standardAppearance = tabBarAppearance
         tabBar.scrollEdgeAppearance = tabBarAppearance
         
-        navigattionControllers = [summaryVC, moneyVC, moreVC]
+        navigationControllers = [summaryVC, moneyVC, moreVC]
         
-        viewControllers = navigattionControllers
+        viewControllers = navigationControllers
     }
     
 }

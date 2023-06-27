@@ -19,19 +19,19 @@ class Test: XCTestCase {
         formatter = CurrencyFormatter()
     }
     
-    func testBreakDollarsIntoCents() throws {
+    func testBreakDollarsIntoCents() {
         let result = formatter.breakIntoDollarsAndCents(929466.23)
         XCTAssertEqual(result.0, "929,466")
         XCTAssertEqual(result.1, "23")
     }
     
-    func testDollarFornatter() throws {
+    func testDollarFornatter() {
         let result = formatter.dollarsFormatted(929466.23)
         XCTAssertEqual(result, "$929,466.23")
     }
     
     
-    func testZeroDollarsFormatted() throws {
+    func testZeroDollarsFormatted() {
         let result = formatter.dollarsFormatted(0.00)
         XCTAssertEqual(result, "$0.00")
     }

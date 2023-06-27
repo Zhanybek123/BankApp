@@ -49,15 +49,25 @@ class LoginViewController: UIViewController {
         return loginView.passwordTextField.text
     }
     
+    //Animating constraints
+    var leadingEdgeOnScreen = -16.0
+    var leadingEdgeOffScreen = -1000.0
+    var animationDuration = 1.0
+    var titleLeadingAnchor: NSLayoutConstraint?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         addGradient()
         style()
         layout()
-        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
+    }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         signInButton.configuration?.showsActivityIndicator = false
@@ -82,10 +92,10 @@ extension LoginViewController {
         view.addSubview(errorLabel)
         
         NSLayoutConstraint.activate([
-            titleAndDescriptionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleAndDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            titleAndDescriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             titleAndDescriptionView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height/3.3),
+            titleAndDescriptionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            titleAndDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleAndDescriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             titleAndDescriptionView.bottomAnchor.constraint(equalTo: loginView.topAnchor, constant: 40),
             
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -100,6 +110,9 @@ extension LoginViewController {
             errorLabel.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor),
             errorLabel.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor)
         ])
+        
+        titleLeadingAnchor = titleAndDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:CGFloat(leadingEdgeOffScreen))
+        titleLeadingAnchor?.isActive = true
     }
     
     private func addGradient() {
@@ -145,4 +158,13 @@ extension LoginViewController {
     }
 }
     
-
+extension LoginViewController {
+    
+    private func animate() {
+        let animator = UIViewPropertyAnimator(duration: animationDuration, curve: .easeInOut) {
+            self.titleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        animator.startAnimation()
+    }
+}

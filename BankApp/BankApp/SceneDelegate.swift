@@ -8,27 +8,39 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     
     var loginViewController = LoginViewController()
     var onboardingContainerViewController = OnboardingContainerViewController()
     var accountSummaryVC = AccountSummaryViewController()
     var tabBarController = MainTabBarController()
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-//        window?.rootViewController = loginViewController
-//        window?.rootViewController = onboardingContainerViewController
-//        window?.rootViewController = AccountSummaryViewController()
-        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         loginViewController.loginViewControllerDelegate = self
         onboardingContainerViewController.onboardingContainerDelegate = self
         
+        displayLogin()
+    }
+    
+    private func displayLogin() {
+        window?.rootViewController = loginViewController
+        //        window?.rootViewController = onboardingContainerViewController
+        //        window?.rootViewController = AccountSummaryViewController()
+//        window?.rootViewController = tabBarController
+    }
+    
+    private func displayNextScreen() {
+        if LocalState.hasOnborded {
+            setRootViewController(tabBarController)
+        } else {
+            setRootViewController(onboardingContainerViewController, animated: true)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -80,11 +92,7 @@ extension SceneDelegate {
 
 extension SceneDelegate: LoginViewControllerDelegate {
     func didLogin() {
-        if LocalState.hasOnborded {
-            setRootViewController(accountSummaryVC)
-        } else {
-            setRootViewController(onboardingContainerViewController, animated: true)
-        }
+        displayNextScreen()
     }
 }
 

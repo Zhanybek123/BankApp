@@ -23,18 +23,25 @@ class AccountSummaryViewController: UIViewController {
     
     var header: AccountSummaryHeaderView?
     
+    lazy var logoutBarButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        button.tintColor = .label
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configure()
         configureHeaderView()
         fetchData()
+        setupNavigationBar()
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        tableView.frame = view.bounds
-//    }
+    //    override func viewDidLayoutSubviews() {
+    //        super.viewDidLayoutSubviews()
+    //        tableView.frame = view.bounds
+    //    }
     
     func configure() {
         view.addSubview(tableView)
@@ -58,13 +65,20 @@ class AccountSummaryViewController: UIViewController {
         configureHeaderViewProperties()
     }
     
-    func configureHeaderViewProperties() {
+    private func configureHeaderViewProperties() {
         header?.bankNameLabel.text = "FreedomBank"
         header?.greatingLabel.text = "Good day,"
         header?.userNameLabel.text = "Kelsey"
         header?.dateLabel.text = "June 6, 2023"
         
         header?.bankNameLabel.font = .preferredFont(forTextStyle: .title1)
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = logoutBarButton
+    }
+    
+    @objc func logoutTapped() {
     }
 }
 

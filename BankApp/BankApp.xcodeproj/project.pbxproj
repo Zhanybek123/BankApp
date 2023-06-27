@@ -86,8 +86,8 @@
 		D85EEEB22A1C1212008EC010 /* VIews */ = {
 			isa = PBXGroup;
 			children = (
-				D8F6CBEA2A1BF31700D7B522 /* LoginView.swift */,
 				D85EEEB32A1C1244008EC010 /* TitleAndDescriptionLabelView.swift */,
+				D8F6CBEA2A1BF31700D7B522 /* LoginView.swift */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
