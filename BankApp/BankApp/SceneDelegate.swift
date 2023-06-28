@@ -29,10 +29,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func displayLogin() {
-        window?.rootViewController = loginViewController
+        //        window?.rootViewController = loginViewController
         //        window?.rootViewController = onboardingContainerViewController
-        //        window?.rootViewController = AccountSummaryViewController()
-//        window?.rootViewController = tabBarController
+        window?.rootViewController = AccountSummaryViewController()
+        //        window?.rootViewController = tabBarController
     }
     
     private func displayNextScreen() {

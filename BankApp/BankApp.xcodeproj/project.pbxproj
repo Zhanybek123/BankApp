@@ -21,6 +21,7 @@
 		D877FE982A38EC7E00E2927E /* DecimalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FE972A38EC7E00E2927E /* DecimalUtils.swift */; };
 		D877FE9A2A38EDA800E2927E /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FE992A38EDA800E2927E /* CurrencyFormatter.swift */; };
 		D877FEA92A3E207700E2927E /* CurrencyFormatterUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FEA82A3E207700E2927E /* CurrencyFormatterUnitTest.swift */; };
+		D877FED22A4B64F900E2927E /* ShakyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877FED12A4B64F900E2927E /* ShakyBellView.swift */; };
 		D8F6CBD52A1BEF9A00D7B522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD42A1BEF9A00D7B522 /* AppDelegate.swift */; };
 		D8F6CBD72A1BEF9A00D7B522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD62A1BEF9A00D7B522 /* SceneDelegate.swift */; };
 		D8F6CBD92A1BEF9A00D7B522 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6CBD82A1BEF9A00D7B522 /* LoginViewController.swift */; };
@@ -55,6 +56,7 @@
 		D877FE992A38EDA800E2927E /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		D877FE9F2A3E1F1500E2927E /* BankAppUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankAppUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D877FEA82A3E207700E2927E /* CurrencyFormatterUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterUnitTest.swift; sourceTree = "<group>"; };
+		D877FED12A4B64F900E2927E /* ShakyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakyBellView.swift; sourceTree = "<group>"; };
 		D8F6CBD12A1BEF9A00D7B522 /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F6CBD42A1BEF9A00D7B522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F6CBD62A1BEF9A00D7B522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,14 @@
 			path = BankAppUnitTests;
 			sourceTree = "<group>";
 		};
+		D877FED02A4B64B700E2927E /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				D877FED12A4B64F900E2927E /* ShakyBellView.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
 		D8F6CBC82A1BEF9A00D7B522 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 				D877FE7C2A2423FA00E2927E /* Onboarding */,
 				D877FE8E2A2F94FF00E2927E /* AccountSummary */,
 				D877FE892A2E534100E2927E /* Utilities */,
+				D877FED02A4B64B700E2927E /* ViewComponents */,
 				D8F6CBDD2A1BEF9C00D7B522 /* Assets.xcassets */,
 				D8F6CBDF2A1BEF9C00D7B522 /* LaunchScreen.storyboard */,
 				D8F6CBE22A1BEF9C00D7B522 /* Info.plist */,
@@ -321,6 +332,7 @@
 				D85EEEB42A1C1245008EC010 /* TitleAndDescriptionLabelView.swift in Sources */,
 				D877FE932A30E0FE00E2927E /* AccountSummaryTableViewCell.swift in Sources */,
 				D8F6CBD52A1BEF9A00D7B522 /* AppDelegate.swift in Sources */,
+				D877FED22A4B64F900E2927E /* ShakyBellView.swift in Sources */,
 				D877FE832A266DEF00E2927E /* CubeView.swift in Sources */,
 				D877FE982A38EC7E00E2927E /* DecimalUtils.swift in Sources */,
 				D8F6CBEB2A1BF31700D7B522 /* LoginView.swift in Sources */,

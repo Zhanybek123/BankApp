@@ -9,6 +9,8 @@ import UIKit
 
 class AccountSummaryHeaderView: UIView {
     
+    let shakyBell = ShakyBellView()
+    
     let customView: UIView = {
         let view = UIView()
         view.backgroundColor = appColor
@@ -78,6 +80,7 @@ class AccountSummaryHeaderView: UIView {
         addSubview(customView)
         addSubview(stackView)
         addSubview(moonImageView)
+        addSubview(shakyBell)
         
         stackView.addArrangedSubview(bankNameLabel)
         stackView.addArrangedSubview(greatingLabel)
@@ -100,8 +103,11 @@ class AccountSummaryHeaderView: UIView {
             moonImageView.topAnchor.constraint(equalTo: topAnchor),
             moonImageView.leadingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 8),
             moonImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            moonImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            moonImageView.widthAnchor.constraint(equalToConstant: bounds.width / 3)
+            moonImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            moonImageView.widthAnchor.constraint(equalToConstant: bounds.width / 3),
+            
+            shakyBell.trailingAnchor.constraint(equalTo: trailingAnchor),
+            shakyBell.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
